@@ -1,0 +1,528 @@
+Add this code /* === Reset and Global === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #c0b7b7;
+  color: #0f0f0f;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* === Header === */
+.header {
+  background-color: #1a1a2e;
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #00bcd4;
+  cursor: pointer;
+}
+
+/* === Navigation === */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #00bcd4;
+}
+
+/* === Section Base === */
+.section {
+  padding: 5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1a1a2e;
+}
+
+/* === Home Section === */
+.home {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #fff;
+  padding: 4rem 1rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.home-content {
+  max-width: 800px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.home h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #00bcd4;
+}
+
+.home h1 .highlight {
+  color: #ff6f61;
+}
+
+.home h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #f3f3f3;
+}
+
+.home p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.btn-cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.8rem;
+  background-color: #00bcd4;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #0097a7;
+}
+
+/* === About Section === */
+.about-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 260px;
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.profile-img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #00bcd4;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+/* === Skills Section === */
+.skills-section {
+  padding: 4rem 2rem;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.skill-item {
+  background-color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  color: #333;
+  transition: transform 0.3s ease;
+  font-size: 1rem;
+  flex: 1 0 160px;
+  max-width: 200px;
+  text-align: center;
+}
+
+.skill-item:hover {
+  transform: scale(1.05);
+}
+
+/* === Projects Section === */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+  color: #00bcd4;
+  margin-bottom: 0.5rem;
+}
+
+/* === Contact Section === */
+.contact {
+  text-align: center;
+}
+
+.contact p,
+.contact a {
+  font-size: 1rem;
+  margin: 0.6rem 0;
+}
+
+.contact a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  font-size: 2rem;
+  color: #333;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: #00bcd4;
+}
+
+/* === Footer === */
+.footer {
+  background: #1a1a2e;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.footer-social-icons a {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+  color: #00bcd4;
+}
+
+/* === Animations === */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Media Queries === */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    background-color: #1a1a2e;
+    padding: 1rem 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .home h1 {
+    font-size: 2.5rem;
+  }
+
+  .home h2 {
+    font-size: 1.5rem;
+  }
+
+  .home p {
+    font-size: 1rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .skills-grid {
+    gap: 0.8rem;
+  }
+
+  .skill-item {
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .home h1 {
+    font-size: 2rem;
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+  }
+
+  .profile-img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .social-icons a {
+    font-size: 1.8rem;
+  }
+
+  .footer {
+    font-size: 0.9rem;
+  }
+
+  .skills-section h2 {
+    font-size: 2rem;
+  }
+
+  .skill-item {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+    flex: 1 0 140px;
+  }
+
+  .skills-grid {
+    gap: 0.5rem;
+  }
+}   /* === Experience Section === */
+.experience {
+  padding: 4rem 1rem;
+  background-color: #111;
+  color: #fff;
+}
+
+.experience h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #00bcd4;
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.experience-card {
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid #00bcd4;
+}
+
+.experience-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 188, 212, 0.3);
+}
+
+.experience-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  color: #fff;
+}
+
+.experience-card h3 span {
+  color: #00bcd4;
+  font-weight: 500;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.experience-card .duration {
+  font-size: 0.95rem;
+  color: #bbb;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.experience-card .description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* === Responsive for tablets and below === */
+@media (max-width: 992px) {
+  .experience {
+    padding: 3rem 1rem;
+  }
+
+  .experience-card {
+    padding: 1.5rem;
+  }
+
+  .experience h2 {
+    font-size: 2rem;
+  }
+
+  .experience-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .experience-card .description {
+    font-size: 1rem;
+  }
+}
+
+/* === Responsive for mobile === */
+@media (max-width: 600px) {
+  .experience h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .experience-card {
+    padding: 1rem;
+    border-left: 3px solid #00bcd4;
+  }
+
+  .experience-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .experience-card .duration {
+    font-size: 0.85rem;
+  }
+
+  .experience-card .description {
+    font-size: 0.95rem;
+  }
+}
