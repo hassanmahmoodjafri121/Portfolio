@@ -3,18 +3,26 @@ import React from 'react';
 
 const experiences = [
   {
-    role: "Frontend Developer Intern",
-    company: "TechVerse Solutions",
-    duration: "Jun 2023 – Aug 2023",
+    role: "AR in Medical Billing",
+    company: "Athelas Savi",
+    duration: " 19/12/2023-12/04/2023",
     description:
-      "Worked on responsive UI using React and Tailwind CSS. Collaborated in Agile team to deliver features and fix bugs across multiple sprints."
+      "Worked as an Accounts Receivable specialist in medical billing, managing patient accounts, processing claims, and ensuring timely payments. Collaborated with healthcare providers to resolve billing issues."
   },
   {
-    role: "Web Designer Freelancer",
-    company: "Upwork",
-    duration: "Jan 2022 – May 2023",
+    role: "AR in Medical Billing",
+    company: "Coronis Ajuba",
+    duration: " 03/06/2023-03/08/2023",
     description:
-      "Designed and developed websites for clients using Figma, HTML/CSS, and JavaScript. Focused on UX and accessibility best practices."
+      "Served as an Accounts Receivable specialist in medical billing, focusing on claim processing, patient account management, and resolving billing discrepancies. Worked closely with healthcare providers to ensure accurate billing practices."
+  },
+
+  {
+    role: "Web Developer",
+    company: " GEOTECH",
+    duration: "28/10/2024-28/02/2025",
+    description:
+      "Developed and maintained web applications, focusing on user experience and functionality. Collaborated with cross-functional teams to design, implement, and optimize web solutions for various projects.  Utilized modern web technologies to enhance application performance and user engagement."
   }
 ];
 
