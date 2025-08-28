@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaXTwitter } from 'react-icons/fa6';
 
 export default function Contact() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
-    <section id="contact" className="section contact">
+    <motion.section
+      id="contact"
+      className="section contact"
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
+    >
       <h2>Contact Me</h2>
 
       <div className="contact-details">
@@ -28,6 +39,6 @@ export default function Contact() {
           <FaXTwitter />
         </a>
       </div>
-    </section>
+    </motion.section>
   );
 }

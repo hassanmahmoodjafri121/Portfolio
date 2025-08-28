@@ -1,9 +1,18 @@
-
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 export default function Footer() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
-    <footer className="footer">
+    <motion.footer
+      className="footer"
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
       <p>&copy; {new Date().getFullYear()} Hassan Mahmood. All rights reserved.</p>
 
       <div className="footer-social-icons">
@@ -38,6 +47,6 @@ export default function Footer() {
           <i className="fab fa-x-twitter"></i>
         </a>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

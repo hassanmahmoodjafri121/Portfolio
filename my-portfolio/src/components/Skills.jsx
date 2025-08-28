@@ -1,23 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaReact,
-  FaPython,
-  FaGithub,
-  FaGitAlt,
-  FaNodeJs,
-  FaJava,
-  FaDatabase,
-  FaFigma,
+  FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaGithub,
+  FaGitAlt, FaNodeJs, FaJava, FaDatabase, FaFigma
 } from "react-icons/fa";
 import {
-  SiVite,
-  SiTailwindcss,
-  SiMongodb,
-  SiExpress,
-  SiPostgresql,
+  SiVite, SiTailwindcss, SiMongodb, SiExpress, SiPostgresql
 } from "react-icons/si";
 import { MdDesignServices } from "react-icons/md";
 
@@ -40,24 +28,63 @@ const skills = [
   { name: "Figma", icon: <FaFigma className="text-pink-500" /> },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1 },
+};
+
 export default function Skills() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section id="skills" className="skills-section section p-8">
-      <h2 className="text-3xl font-bold mb-6 text-center">Skills</h2>
-      <div className="skills-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center">
+    <motion.section
+      id="skills"
+      className="skills-section section p-8"
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <motion.h2
+        className="text-3xl font-bold mb-6 text-center"
+        variants={itemVariants}
+      >
+        Skills
+      </motion.h2>
+
+      <motion.div
+        className="skills-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center"
+        variants={containerVariants}
+      >
         {skills.map((skill, idx) => (
-          <div
+          <motion.div
             key={idx}
             className="skill-item flex flex-col items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow hover:scale-105 transition-transform"
+            variants={itemVariants}
+            whileHover={{ scale: 1.08 }}
           >
-            {/* 🔥 Increased size here */}
             <div className="text-8xl sm:text-9xl md:text-10xl lg:text-[12rem] mb-4">
               {skill.icon}
             </div>
             <p className="text-lg font-semibold">{skill.name}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

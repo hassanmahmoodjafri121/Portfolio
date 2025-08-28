@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -10,6 +11,25 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/footer";
 import "./index.css";
+
+function AnimatedSection({ children, delay }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
+
+  return (
+    <motion.section
+      ref={ref}
+      className="page-section"
+      data-aos="fade-up"
+      data-aos-delay={parseInt(delay * 1000)}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      transition={{ duration: 0.6, delay: parseFloat(delay) }}
+    >
+      {children}
+    </motion.section>
+  );
+}
 
 function App() {
   useEffect(() => {
@@ -29,20 +49,15 @@ function App() {
     <Contact />,
   ];
 
-  const delays = ["0", "200", "400", "600", "800", "1000"];
+  const delays = ["0", "0.2", "0.4", "0.6", "0.8", "1"];
 
   return (
     <>
       <main>
         {sections.map((Component, index) => (
-          <section
-            key={index}
-            className="page-section"
-            data-aos="fade-up"
-            data-aos-delay={delays[index]}
-          >
+          <AnimatedSection key={index} delay={delays[index]}>
             {Component}
-          </section>
+          </AnimatedSection>
         ))}
       </main>
       <Footer />

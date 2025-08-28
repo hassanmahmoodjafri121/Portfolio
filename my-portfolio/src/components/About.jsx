@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import profileImage from '../assets/hassanimg.jpg';
 
 const About = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
-    <section id="about" className="section">
+    <motion.section
+      id="about"
+      className="section page-section"
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
+    >
       <h2>About Me</h2>
       <div className="about-container">
         <img
@@ -26,7 +37,7 @@ const About = () => {
           </p>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

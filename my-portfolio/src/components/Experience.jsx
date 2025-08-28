@@ -1,44 +1,122 @@
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaEnvelope, FaXTwitter } from 'react-icons/fa6';
 
-import React from 'react';
-
-const experiences = [
-  {
-    role: "AR in Medical Billing",
-    company: "Athelas Savi",
-    duration: " 19/12/2023-12/04/2023",
-    description:
-      "Worked as an Accounts Receivable specialist in medical billing, managing patient accounts, processing claims, and ensuring timely payments. Collaborated with healthcare providers to resolve billing issues."
+const containerVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeInOut',
+      when: 'beforeChildren',
+      staggerChildren: 0.2,
+    },
   },
-  {
-    role: "AR in Medical Billing",
-    company: "Coronis Ajuba",
-    duration: " 03/06/2023-03/08/2023",
-    description:
-      "Served as an Accounts Receivable specialist in medical billing, focusing on claim processing, patient account management, and resolving billing discrepancies. Worked closely with healthcare providers to ensure accurate billing practices."
-  },
+};
 
-  {
-    role: "Web Developer",
-    company: " GEOTECH",
-    duration: "28/10/2024-28/02/2025",
-    description:
-      "Developed and maintained web applications, focusing on user experience and functionality. Collaborated with cross-functional teams to design, implement, and optimize web solutions for various projects.  Utilized modern web technologies to enhance application performance and user engagement."
-  }
-];
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
-export default function Experience() {
+export default function Contact() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
-    <section id="experience" className="experience">
-      <h2>Experience</h2>
-      <div className="experience-timeline">
-        {experiences.map((exp, index) => (
-          <div className="experience-card" key={index}>
-            <h3>{exp.role} <span>@ {exp.company}</span></h3>
-            <p className="duration">{exp.duration}</p>
-            <p className="description">{exp.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <motion.section
+      id="contact"
+      className="section contact"
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+    >
+      <motion.h2 variants={itemVariants}>Contact Me</motion.h2>
+
+      <motion.div className="contact-details" variants={containerVariants}>
+        <motion.p variants={itemVariants}>
+          <strong>Mobile:</strong>{' '}
+          <a href="tel:+919971373227">+91 9971373227</a>
+        </motion.p>
+        <motion.p variants={itemVariants}>
+          <strong>Email:</strong>{' '}
+          <a href="mailto:jafri3043@gmail.com">jafri3043@gmail.com</a>
+        </motion.p>
+        <motion.p variants={itemVariants}>
+          <strong>LinkedIn:</strong>{' '}
+          <a
+            href="https://www.linkedin.com/in/hassan-mahmood-70a34123a"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            linkedin.com/in/hassan-mahmood
+          </a>
+        </motion.p>
+        <motion.p variants={itemVariants}>
+          <strong>Twitter:</strong>{' '}
+          <a
+            href="https://x.com/HassanJ96541"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @HassanJ96541
+          </a>
+        </motion.p>
+        <motion.p variants={itemVariants}>
+          <strong>GitHub:</strong>{' '}
+          <a
+            href="https://github.com/hassanmahmoodjafri121"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/hassanmahmoodjafri121
+          </a>
+        </motion.p>
+      </motion.div>
+
+      <motion.div className="social-icons" variants={containerVariants}>
+        <motion.a
+          href="https://github.com/hassanmahmoodjafri121"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          variants={itemVariants}
+          whileHover={{ scale: 1.2 }}
+        >
+          <FaGithub />
+        </motion.a>
+        <motion.a
+          href="https://www.linkedin.com/in/hassan-mahmood-70a34123a"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          variants={itemVariants}
+          whileHover={{ scale: 1.2 }}
+        >
+          <FaLinkedin />
+        </motion.a>
+        <motion.a
+          href="mailto:jafri3043@gmail.com"
+          aria-label="Email"
+          variants={itemVariants}
+          whileHover={{ scale: 1.2 }}
+        >
+          <FaEnvelope />
+        </motion.a>
+        <motion.a
+          href="https://x.com/HassanJ96541"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+          variants={itemVariants}
+          whileHover={{ scale: 1.2 }}
+        >
+          <FaXTwitter />
+        </motion.a>
+      </motion.div>
+    </motion.section>
   );
 }

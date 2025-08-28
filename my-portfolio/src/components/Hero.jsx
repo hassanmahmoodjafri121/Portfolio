@@ -1,19 +1,62 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+
+const containerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+      when: 'beforeChildren',
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
 
 export default function Home() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
-    <section id="home" className="section home">
-      <div className="home-content">
-        <h1>Hello, I'm <span className="highlight">Hassan</span></h1>
-        <h2>A Passionate Full Stack Developer</h2>
-        <p>
+    <motion.section
+      id="home"
+      className="section home"
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      exit="hidden"
+    >
+      <motion.div className="home-content" variants={containerVariants}>
+        <motion.h1 variants={itemVariants}>
+          Hello, I'm <span className="highlight">Hassan</span>
+        </motion.h1>
+        <motion.h2 variants={itemVariants}>
+          A Passionate Full Stack Developer
+        </motion.h2>
+        <motion.p variants={itemVariants}>
           I specialize in building responsive, high-performance, and visually engaging web applications.
-        </p>
-        <p>
+        </motion.p>
+        <motion.p variants={itemVariants}>
           Let’s create something amazing together!
-        </p>
-        <a href="#contact" className="btn-cta">Contact Me</a>
-      </div>
-    </section>
+        </motion.p>
+        <motion.a
+          href="#contact"
+          className="btn-cta"
+          variants={itemVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Contact Me
+        </motion.a>
+      </motion.div>
+    </motion.section>
   );
 }
