@@ -47,15 +47,35 @@ export default function Home() {
         <motion.p variants={itemVariants}>
           Let’s create something amazing together!
         </motion.p>
-        <motion.a
-          href="#contact"
-          className="btn-cta"
-          variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+
+        {/* Buttons Row */}
+        <motion.div
+          className="button-row"
+          style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}
         >
-          Contact Me
-        </motion.a>
+          {/* Contact Me Button */}
+          <motion.a
+            href="#contact"
+            className="btn-cta"
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Contact Me
+          </motion.a>
+
+          {/* Resume Download Button */}
+          <motion.a
+            href="/resume.pdf"
+            download="Hassan_Resume.pdf"
+            className="btn-cta resume-btn"
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Download Resume
+          </motion.a>
+        </motion.div>
       </motion.div>
     </motion.section>
   );

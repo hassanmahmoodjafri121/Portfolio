@@ -339,3 +339,28 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.resume-btn {
+  background-color: #ff6f61;
+}
+
+.resume-btn:hover {
+  background-color: #e65b50;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;             /* spacing between icons */
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  font-size: 2rem;       /* bigger icons */
+  color: var(--accent-color, #00aaff);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ff6b6b;        /* hover color */
+  transform: scale(1.2); /* zoom effect on hover */
+}
