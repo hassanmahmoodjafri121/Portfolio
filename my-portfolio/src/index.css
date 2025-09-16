@@ -360,7 +360,3 @@ body {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.social-icons a:hover {
-  color: #ff6b6b;        /* hover color */
-  transform: scale(1.2); /* zoom effect on hover */
-}

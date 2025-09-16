@@ -8,7 +8,6 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
-import Contact from "./components/Contact";
 import Footer from "./components/footer";
 import "./index.css";
 
@@ -40,16 +39,16 @@ function App() {
     });
   }, []);
 
+  // Removed <Contact /> here (kept only Footer's contact info)
   const sections = [
     <Home />,
     <About />,
     <Skills />,
     <Experience />,
     <Projects />,
-    <Contact />,
   ];
 
-  const delays = ["0", "0.2", "0.4", "0.6", "0.8", "1"];
+  const delays = ["0", "0.2", "0.4", "0.6", "0.8"];
 
   return (
     <>

@@ -48,23 +48,11 @@ export default function Home() {
           Let’s create something amazing together!
         </motion.p>
 
-        {/* Buttons Row */}
+        {/* Resume Download Button Only */}
         <motion.div
           className="button-row"
-          style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}
+          style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'center' }}
         >
-          {/* Contact Me Button */}
-          <motion.a
-            href="#contact"
-            className="btn-cta"
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Contact Me
-          </motion.a>
-
-          {/* Resume Download Button */}
           <motion.a
             href="/resume.pdf"
             download="Hassan_Resume.pdf"
